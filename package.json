@@ -1,9 +1,9 @@
 {
   "name": "vue-fixed-scroll-break",
   "version": "1.4.3",
-  "description": "A performant wrapper component to make an element fixed and stop it from scrolling past a certain point.",
+  "description": "A wrapper component to make an element fixed and stop it from scrolling past a certain point.",
   "author": "evamart",
-  "license" : "MIT",
+  "license": "MIT",
   "keywords": [
     "vue",
     "nuxt",

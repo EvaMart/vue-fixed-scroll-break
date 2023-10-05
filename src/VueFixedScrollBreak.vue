@@ -1,5 +1,5 @@
 <template>
-    <div id="main-div" ref="toTop">
+    <div :style="style()" >
         <slot />
     </div>
 </template>
@@ -7,6 +7,23 @@
 
 export default {
     name: 'VueFixedScrollBreak',
+    props: {
+        totalOffset: {
+            type: Number,
+            default: 80,
+            required: false
+        },
+        topOfStopElement: {
+            type: Number,
+            required: true
+        },
+
+    },
+    data() {
+        return {
+            offset:  this.totalOffset,
+        }
+    },
     beforeMount() {
         window.addEventListener('scroll', this.handleScroll);
     },
@@ -15,40 +32,42 @@ export default {
 	},
     methods: {
         goToTopPosition() {
-            /* 
-            ---- We can use a ref that can be passed somehow to the component ---- 
-			const refFooter = this.$root.$children[2].$refs.Footer;
-			const topOfFooter = refFooter.$el.offsetTop;
-            */
-
-            // ---- Or we can use a static value ----
-            const topOfFooter = 2355 // PROPERTY: top of footer
 
 			const bottom = window.scrollY + window.innerHeight;
-			const distanceFromFooter = bottom - topOfFooter;
+			const distanceFromStopElement = bottom - this.topOfStopElement;
 
-            
-			if (bottom < topOfFooter + 120) { // PROPERTY: distance from footer to stop. TotalOffset. 120 is the distance from the footer to stop the button
-				this.$refs.toTop.$el.style.bottom = `${120}px`; // PROPERTY: distance from footer to stop.  TotalOffset.
+            //---------------------------------------------
+            // Make diagram of this:
+            console.log('bottom', bottom)
+            console.log('this.topOfStopElement', this.topOfStopElement)
+            console.log('distanceFromStopElement', distanceFromStopElement)
+            console.log('this.totalOffset', this.totalOffset)
+            //---------------------------------------------
+
+            // topOfStopElement +  totalOffset = distance from footer to stop
+			if (bottom < this.topOfStopElement + this.totalOffset) { 
+                // the component reached the limit --> stop in same place (simulate absolute position)
+                console.log('hey')
+				this.offset = this.totalOffset  
 			} else {
-				this.$refs.toTop.$el.style.bottom = `${distanceFromFooter}px`;
+                // the component has not reached the limit --> simulate fixed position
+                console.log('ho')
+				this.offset = distanceFromStopElement;
 			}
 		},
 
+        style(){
+            return {
+                bottom: `${this.offset}px !important`,
+                position: 'fixed',
+            }
+        },
+
         handleScroll() {
-			this.goToTopPosition(); // GoToTop button position -> stop at footer
+            console.log('Scrolling!')
+			this.goToTopPosition();
 		},
     }
 }
 
 </script>
-
-<style>
-
-#main-div {
-    position: fixed;
-    top: 200;
-    color: red;
-}
-
-</style>
