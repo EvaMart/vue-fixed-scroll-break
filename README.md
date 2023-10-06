@@ -1,8 +1,3 @@
----
-customjs:
- - termynal.js
- - termynal.css
----
 
 # vue-fixed-scroll-break
 
