@@ -42,13 +42,9 @@ The property `topOfStopElement` is calculated from the offset of the footer elem
         :total-offset="100"
         >
         <v-btn
-            id="to-top"
             ref="toTop"
             class="mx-2"
             fab
-            dark
-            small
-            color="#f48f43"
             >
                 <v-icon dark> mdi-arrow-up </v-icon>
             </v-btn>
