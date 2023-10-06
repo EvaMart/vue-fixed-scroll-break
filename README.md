@@ -4,16 +4,7 @@
 A wrapper component to make an element fixed and stop it from scrolling past a certain point.
 
 
-
-
 ## Installation
-
-<script src="termynal.js" data-termynal-container="#termynal">{newline}</script>
-<link rel="stylesheet" href="termynal.css">
-<div id="termynal" data-ty-startDelay="600" data-ty-cursor="▋">
-    <span data-ty="input"> pip install spacy</span>
-    <span data-ty data-ty-delay="250">Installing spaCy...</span>
-</div>
 
 ```bash
 npm install vue-fixed-scroll-break
