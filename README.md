@@ -7,7 +7,7 @@ A wrapper component to make an element fixed and stop it from scrolling past a c
 
 ## Installation
 
-<script src="termynal.js" data-termynal-container="#termynal"></script>
+<script src="termynal.js" data-termynal-container="#termynal">{newline}</script>
 <link rel="stylesheet" href="termynal.css">
 <div id="termynal" data-ty-startDelay="600" data-ty-cursor="▋">
     <span data-ty="input"> pip install spacy</span>
