@@ -1,3 +1,9 @@
+---
+customjs:
+ - termynal.js
+ - termynal.css
+---
+
 # vue-fixed-scroll-break
 
 A wrapper component to make an element fixed and stop it from scrolling past a certain point.
