@@ -38,7 +38,7 @@ The property `topOfStopElement` is calculated from the offset of the footer elem
 ```html
 <template>
     <VueFixedScrollBreak
-		:top-of-stop-element="offset"
+        :top-of-stop-element="offset"
         :total-offset="100"
         >
         <v-btn
