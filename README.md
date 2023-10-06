@@ -46,14 +46,12 @@ The property `topOfStopElement` is calculated from the offset of the footer elem
             class="mx-2"
             fab
             >
-                <v-icon dark> mdi-arrow-up </v-icon>
-            </v-btn>
+            <v-icon dark> mdi-arrow-up </v-icon>
+        </v-btn>
     </VueFixedScrollBreak>
-
     <div ref="Footer">
         My footer
     </div>
-
 </template>
 
 <script>
@@ -69,9 +67,7 @@ export default {
             offset: this.$refs.Footer.$el.offsetTop;
         }
     },
-
 }
-
 </script>
 ```
 In this case the button will stop scrolling when it reaches 100px from the top of the footer.
