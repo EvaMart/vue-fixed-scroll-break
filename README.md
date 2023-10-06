@@ -2,24 +2,52 @@
 
 A wrapper component to make an element fixed and stop it from scrolling past a certain point.
 
-## Passing reference of component to stop at.
+
+
+
+## Installation
+
+<script src="termynal.js" data-termynal-container="#termynal"></script>
+<link rel="stylesheet" href="termynal.css">
+<div id="termynal" data-ty-startDelay="600" data-ty-cursor="▋">
+    <span data-ty="input"> pip install spacy</span>
+    <span data-ty data-ty-delay="250">Installing spaCy...</span>
+</div>
+
+```bash
+npm install vue-fixed-scroll-break
+```
+
+## Usage
 
 ```html
-<VueFixedScrollBreak
-    :offset-ref="'#my-reference'"
-    :additional-offset="100"
-    >
+<VueFixedScrollBreak>
     My content
 </VueFixedScrollBreak>
 ```
 
-Example:
-A vuetify button to go to top of page. `ref` of footer is `Footer`
+
+## Props
+
+| Name | Type | Required| Default | Description |
+| --- | --- | --- | --- | --- |
+| `topOfStopElement` | Number | Yes | - | The offset from the top of the stop element to stop scrolling. |
+| `totalOffset` | Number | 80 | No | An additional distance from the `topStopElement` to stop scrolling. |
+
+
+
+## Example
+This example is a vuetify button to go to top of page. The button will stop scrolling when it reaches the footer.  
+
+The property `topOfStopElement` is calculated from the offset of the footer element. Using a `ref` in the footer is a simple and straightforward way to calculate it using `this.$refs.Footer.$el.offsetTop`. 
+
+
+
 ```html
 <template>
     <VueFixedScrollBreak
-        :offset-ref="footerRef"
-        :additional-offset="100"
+		:top-of-stop-element="offset"
+        :total-offset="100"
         >
             <v-btn
                 id="to-top"
@@ -37,7 +65,7 @@ A vuetify button to go to top of page. `ref` of footer is `Footer`
     <div ref="Footer">
         My footer
     </div>
-    
+
 </template>
 
 <script>
@@ -50,7 +78,7 @@ export default {
     },
     data() {
         return {
-            footerRef : this.$refs.Footer
+            offset: this.$refs.Footer.$el.offsetTop;
         }
     },
 
@@ -58,19 +86,7 @@ export default {
 
 </script>
 ```
-In this case the button will stop scrolling when it reaches 100px from the footer.
+In this case the button will stop scrolling when it reaches 100px from the top of the footer.
 
-> :bulb: this example assumes the footer is in the same component as the button. If not, you will need to use an expression similar to this one to get the reference of the footer: 
->    ```html
->    footerRef: this.$root.$children[2].$refs.Footer
->    ```
+> :bulb: In this example the footer is in the same component as the button. If this were not the case, it would still be possible to access it through `this.$root.$children`. 
 
-
-## Passing position directly (TotalOffset) (in pixels)
-```html
-<VueFixedScrollBreak
-    :offset="'100'"
-    >
-    My content
-</VueFixedScrollBreak>
-```

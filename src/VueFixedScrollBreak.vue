@@ -46,12 +46,10 @@ export default {
 
             // topOfStopElement +  totalOffset = distance from footer to stop
 			if (bottom < this.topOfStopElement + this.totalOffset) { 
-                // the component reached the limit --> stop in same place (simulate absolute position)
-                console.log('hey')
+                // the component has not reached the limit 
 				this.offset = this.totalOffset  
 			} else {
-                // the component has not reached the limit --> simulate fixed position
-                console.log('ho')
+                // the component reached the limit 
 				this.offset = distanceFromStopElement;
 			}
 		},
