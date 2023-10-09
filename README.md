@@ -24,7 +24,7 @@ npm install vue-fixed-scroll-break
 | Name | Type | Required| Default | Description |
 | --- | --- | --- | --- | --- |
 | `topOfStopElement` | Number | Yes | - | The offset from the top of the stop element to stop scrolling. |
-| `totalOffset` | Number | 80 | No | An additional distance from the `topStopElement` to stop scrolling. |
+| `totalOffset` | Number | No | 80 | An additional distance from the `topStopElement` to stop scrolling. |
 
 
 
