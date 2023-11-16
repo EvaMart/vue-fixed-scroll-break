@@ -1,5 +1,6 @@
 
 # vue-fixed-scroll-break
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
 
 A wrapper component to make an element fixed and stop it from scrolling past a certain point.
 
