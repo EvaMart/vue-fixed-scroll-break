@@ -1,0 +1,13 @@
+|
+  cff-version: 1.2.0
+  message: If you use this software, please cite it as below.
+  title: vue-fixed-scroll-break
+  version: 1.0.0
+  authors:
+  - name: emarti2
+    email: eva.martin@bsc.es
+  keywords: []
+  license: Other
+  repository-code: https://github.com/EvaMart/vue-fixed-scroll-break
+  url: https://www.npmjs.com/package/vue-fixed-scroll-break
+  references: []
